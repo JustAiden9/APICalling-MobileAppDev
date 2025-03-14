@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var memes = [Item]() // List of memes from the internet
+    @State private var memes = [Item]() // List of memes from the api, empty list that will get filled later on
     @State private var showingAlert = false // Show an error message if something goes wrong
     @State private var selectedMeme: Item? // The meme that was tapped
     @State private var showingMemeDetail = false // Show a bigger view of the meme
@@ -46,7 +46,7 @@ struct ContentView: View {
         }
     }
 
-    // This function gets the memes from a website
+    // This function gets the memes from the API
     func loadData() async {
         if let url = URL(string: "https://api.imgflip.com/get_memes") {
             do {
